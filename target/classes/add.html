@@ -22,7 +22,7 @@
 
     async function addTheDuck() {
         let message = "";
-        let duckId = document.getElementById("duckId").value.trim();
+        let duckId = document.getElementById("duckId").value;
         let duckType = document.getElementById("duckType").value;
 
         let duck = { id: duckId, type: duckType };
@@ -51,7 +51,7 @@
             alert(message);
     }
      async function submitTheImage(){
-        let duckId=document.getElementById("duckId").value;
+        let duckId=document.getElementById("id").value;
         let imageInput=document.getElementById("imageInput");
         let formData = new FormData();
         formData.append("file",imageInput.files[0]);
