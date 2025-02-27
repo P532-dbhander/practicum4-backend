@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        .card{
+            box-shadow:0 4px 8px 0 (0,0,0,0.2);
+            transition:0.3s;
+            width:20%;
+            border-radius:5px;
+        }
+
+        .card:hover{
+            box-shadow:0 8px 16px 0 (0,0,0,0.2);
+        }
+
+        img{
+            border-radius: 5px 5px 0 0;
+        }
+
+        .container{
+            padding:2px 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Ducks Collection</h2>
+<div id="duck-container"></div>
+
+<script>
+    async function fetchDucks() {
+        try {
+            let response = await fetch("http://localhost:8080/ducks");
+            if (!response.ok) throw new Error("Failed to fetch ducks");
+            let ducks = await response.json();
+
+            let container = document.getElementById("duck-container");
+            container.innerHTML = "";
+
+            ducks.forEach(duck => {
+                let card = document.createElement("div");
+                card.className = "card";
+
+                let img = document.createElement("img");
+                img.src = `http://localhost:8080/ducks/${duck.id}/image`;
+                img.alt = "Duck Image";
+
+                let cardContainer = document.createElement("div");
+                cardContainer.className = "container";
+
+                let title = document.createElement("h4");
+                title.innerHTML = `<b>${duck.id}</b>`;
+
+                let type = document.createElement("p");
+                type.textContent = duck.type;
+
+                cardContainer.appendChild(title);
+                cardContainer.appendChild(type);
+                card.appendChild(img);
+                card.appendChild(cardContainer);
+                container.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error("Error loading ducks:", error);
+        }
+    }
+
+    fetchDucks();
+</script>
+
+</body>
+</html>

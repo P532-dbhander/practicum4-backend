@@ -1,5 +1,5 @@
 package edu.iu.habahram.ducksservice.controllers;
-
+import edu.iu.habahram.ducksservice.controllers.DuckController;
 import edu.iu.habahram.ducksservice.model.DuckData;
 import edu.iu.habahram.ducksservice.model.Duck;
 import edu.iu.habahram.ducksservice.repository.DucksRepository;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/ducks")
 public class DuckController {
 
@@ -22,7 +22,6 @@ public class DuckController {
     public DuckController(DucksRepository ducksRepository) {
         this.ducksRepository = ducksRepository;
     }
-
 
    @PostMapping
     public int add(@RequestBody DuckData duck) {
@@ -103,5 +102,4 @@ public class DuckController {
             throw new RuntimeException(e);
         }
     }
-
 }

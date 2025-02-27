@@ -28,24 +28,24 @@
 <body>
 
 <h2>Ducks Collection</h2>
-<div id="duck-container"></div> <!-- This will hold the cards -->
+<div id="duck-container"></div>
 
 <script>
     async function fetchDucks() {
         try {
-            let response = await fetch("http://localhost:8080/ducks"); // Fetch the list of ducks
+            let response = await fetch("http://localhost:8080/ducks");
             if (!response.ok) throw new Error("Failed to fetch ducks");
             let ducks = await response.json();
 
             let container = document.getElementById("duck-container");
-            container.innerHTML = ""; // Clear previous content
+            container.innerHTML = "";
 
             ducks.forEach(duck => {
                 let card = document.createElement("div");
                 card.className = "card";
 
                 let img = document.createElement("img");
-                img.src = `http://localhost:8080/ducks/${duck.id}/image`; // Image from backend
+                img.src = `http://localhost:8080/ducks/${duck.id}/image`;
                 img.alt = "Duck Image";
 
                 let cardContainer = document.createElement("div");
@@ -69,7 +69,7 @@
         }
     }
 
-    fetchDucks(); // Fetch ducks when the page loads
+    fetchDucks();
 </script>
 
 </body>

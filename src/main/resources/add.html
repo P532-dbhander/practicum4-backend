@@ -15,6 +15,9 @@
 <label>Image:</label>
 <input type="file" id="imageInput" accept="image/*"/>
 
+<label>Audio:</label>
+<input type="file" id="audioInput" accept="audio/*"/>
+
 <button onclick="addTheDuck()">Add the duck</button>
 
 <script>
@@ -36,34 +39,54 @@
             body: JSON.stringify(duck)
         };
 
-            let response = await fetch(host + "/ducks", request);
-            if (response.status === 200) {
-                let result=await submitTheImage();
-                if(result){
-                    message = "The duck was added successfully!";
-                } else {
-                    message = "Something went wrong! Duck data could not be saved.";
-                }
+        let response = await fetch(host + "/ducks", request);
+        if (response.status === 200) {
+            let imageResult = await submitTheImage();
+            let audioResult = await submitTheAudio();
+
+            if (imageResult && audioResult) {
+                message = "The duck was added successfully with image and audio!";
             } else {
-                console.log(response);
-                message="Something went wrong!Duck data could not be saved.";
+                message = "Something went wrong! Duck data could not be fully saved.";
             }
-            alert(message);
+        } else {
+            console.log(response);
+            message = "Something went wrong! Duck data could not be saved.";
+        }
+        alert(message);
     }
-     async function submitTheImage(){
-        let duckId=document.getElementById("duckId").value;
-        let imageInput=document.getElementById("imageInput");
+
+    async function submitTheImage() {
+        let duckId = document.getElementById("duckId").value;
+        let imageInput = document.getElementById("imageInput");
         let formData = new FormData();
-        formData.append("file",imageInput.files[0]);
-        let request={
-            method:"POST",
-            body:formData
+        formData.append("file", imageInput.files[0]);
+
+        let request = {
+            method: "POST",
+            body: formData
         };
 
-     let response=await fetch(host + "/ducks/"+duckId+"/image",request);
-     let result = await response.json();
-     return result;
-     }
+        let response = await fetch(host + "/ducks/" + duckId + "/image", request);
+        let result = await response.json();
+        return result;
+    }
+
+    async function submitTheAudio() {
+        let duckId = document.getElementById("duckId").value;
+        let audioInput = document.getElementById("audioInput");
+        let formData = new FormData();
+        formData.append("file", audioInput.files[0]);
+
+        let request = {
+            method: "POST",
+            body: formData
+        };
+
+        let response = await fetch(host + "/ducks/" + duckId + "/audio", request);
+        let result = await response.json();
+        return result;
+    }
 </script>
 </body>
 </html>

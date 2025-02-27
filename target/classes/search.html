@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<labe>Type:</labe>
+<label>Type:</label>
 <input id="type" />
 <button onclick="search()">Search</button>
 <br />
@@ -39,40 +39,51 @@
     </tr>
     </thead>
     <tbody id="result">
-
     </tbody>
-
 </table>
 
 <script>
-    let ducks = [
-     { id: 1, type: "Mallard" },
-     { id: 2, type: "Redhead" },
-     { id: 3, type: "Decoy" },
-   ];
+    let ducks = [];
 
-   async function search() {
+ async function getAll() {
+     let host = "http://localhost:8080";
+     try {
+         let response = await fetch(host + "/ducks");
+         if (!response.ok) throw new Error("Failed to fetch ducks");
+         return await response.json();
+     } catch (error) {
+         console.error("Error fetching ducks:", error);
+         return [];
+     }
+ }
+
+ async function search() {
+     if (ducks.length == 0) {
+         ducks = await getAll();
+     }
 
      let duckType = document.getElementById("type").value;
      let table = document.getElementById("result");
      table.innerHTML = "";
 
      for (let duck of ducks) {
-       if (!duckType || duck.type.toLowerCase() == duckType.toLowerCase()) {
-         let row = document.createElement("tr");
-         let cell1 = document.createElement("td");
-         let id = document.createTextNode(duck.id);
-         cell1.appendChild(id);
-         row.appendChild(cell1);
-         let cell2 = document.createElement("td");
-         let type = document.createTextNode(duck.type);
-         cell2.appendChild(type);
-         row.appendChild(cell2);
-         table.appendChild(row);
-       }
+         if (!duckType || duck.type.toLowerCase() == duckType.toLowerCase()) {
+             let row = document.createElement("tr");
+             let cell1 = document.createElement("td");
+             let id = document.createTextNode(duck.id);
+             cell1.appendChild(id);
+             row.appendChild(cell1);
+
+             let cell2 = document.createElement("td");
+             let type = document.createTextNode(duck.type);
+             cell2.appendChild(type);
+             row.appendChild(cell2);
+
+             table.appendChild(row);
+         }
      }
-   }
+ }
+
 </script>
 </body>
 </html>
-
