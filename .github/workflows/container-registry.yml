@@ -9,6 +9,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      actions: read
       checks: write  # Added permission for creating check runs
 
     steps:
