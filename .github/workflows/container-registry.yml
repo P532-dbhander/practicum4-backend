@@ -31,7 +31,7 @@ jobs:
         run: ls target/surefire-reports/  # Verify the test reports exist
 
       - name: Report
-        uses: dorny/test-reporter@v2  # Updated version
+        uses: dorny/test-reporter@v1  # Updated version
         if: always()
         with:
           name: Maven Tests
