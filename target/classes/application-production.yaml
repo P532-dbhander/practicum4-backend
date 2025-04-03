@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://dpg-cvmttpgdl3ps73d7pq3g-a.oregon-postgres.render.com/duck_service_database_unsu
-    username: duck_service_database_unsu_user
-    password: ne4FQcVHYAPKNx0PHTPpryRvLCeJ6kto
+    username: ${database_username}
+    password: ${database_password}
 
   jpa:
     hibernate:
