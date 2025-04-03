@@ -31,3 +31,7 @@ build/
 ducks/audio/*
 ducks/images/*
 db.txt
+src/main/resources/add.html
+src/main/resources/index.html
+src/main/resources/pond.html
+src/main/resources/search.html

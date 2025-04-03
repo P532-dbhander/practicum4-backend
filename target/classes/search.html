@@ -46,7 +46,7 @@
     let ducks = [];
 
  async function getAll() {
-     let host = "http://localhost:8080";
+     let host = "https://ducks-service-dbhander.onrender.com";
      try {
          let response = await fetch(host + "/ducks");
          if (!response.ok) throw new Error("Failed to fetch ducks");

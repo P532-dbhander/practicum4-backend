@@ -1,12 +1,16 @@
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\DuckData.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\DecoyDuck.java
+D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\Ducks.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\Mallard.java
+D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\controllers\AuthenticationController.java
+D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\repository\DucksFileRepository.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\DuckType.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\controllers\DuckController.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\Quack.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\Redhead.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\DucksServiceApplication.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\RubberDuck.java
+D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\config\SecurityConfig.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\QuackBehavior.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\repository\DucksRepository.java
 D:\Grads\ducks-service\src\main\java\edu\iu\habahram\ducksservice\model\FlyWithWings.java

@@ -33,7 +33,7 @@
 <script>
     async function fetchDucks() {
         try {
-            let response = await fetch("http://localhost:8080/ducks");
+            let response = await fetch("https://ducks-service-dbhander.onrender.com/ducks");
             if (!response.ok) throw new Error("Failed to fetch ducks");
             let ducks = await response.json();
 
@@ -45,7 +45,7 @@
                 card.className = "card";
 
                 let img = document.createElement("img");
-                img.src = `http://localhost:8080/ducks/${duck.id}/image`;
+                img.src = `https://ducks-service-dbhander.onrender.com/ducks/${duck.id}/image`;
                 img.alt = "Duck Image";
 
                 let cardContainer = document.createElement("div");

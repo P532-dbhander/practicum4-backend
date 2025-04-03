@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.iu.habahram.ducksservice.DucksServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.899 s - in edu.iu.habahram.ducksservice.DucksServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.005 s - in edu.iu.habahram.ducksservice.DucksServiceApplicationTests
