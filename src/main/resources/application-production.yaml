@@ -3,7 +3,6 @@ spring:
     url: jdbc:postgresql://${database_host}/${database_name}
     username: ${database_username}
     password: ${database_password}
-
   jpa:
     hibernate:
       ddl-auto: update
